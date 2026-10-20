@@ -5,7 +5,7 @@ namespace PrimeNumbersAgain;
 
 class Program
 {
-    private const int MaxAllowableTime = 3;
+    private const int MaxAllowableTime = 3_000;
 
     /// <summary>
     /// Prompts for a prime's position, times the search, and displays the result and time check.
@@ -24,9 +24,9 @@ class Program
         timer.Stop();
         
         
-        Console.WriteLine($"\nToo easy.. {prime} is the nth prime when n is {n}. I found that answer in {timer.Elapsed.Seconds} seconds.");
+        Console.WriteLine($"\nToo easy.. {prime} is the nth prime when n is {n}. I found that answer in {timer.Elapsed.TotalMilliseconds:F3} milliseconds.");
 
-        EvaluatePassingTime(timer.Elapsed.Seconds);
+        EvaluatePassingTime(timer.Elapsed.TotalMilliseconds);
     }
 
     /// <summary>
@@ -72,15 +72,15 @@ class Program
         Console.WriteLine(".##......##..##....##....##...##..##..........##.");
         Console.WriteLine(".##......##..##..######..##...##..######...####..");
         Console.WriteLine(".................................................\n\n");
-        Console.WriteLine($"Nth Prime Solver O-Matic Online..\nGuaranteed to find primes up to 2 million in under {MaxAllowableTime} seconds!\n\n");
+        Console.WriteLine($"Nth Prime Solver O-Matic Online..\nGuaranteed to find primes up to 2 million in under {MaxAllowableTime} milliseconds!\n\n");
         
     }
 
     /// <summary>
     /// Displays a colored pass or fail result by comparing the supplied time with the configured limit.
     /// </summary>
-    /// <param name="time">The elapsed time in seconds to compare with <see cref="MaxAllowableTime"/>.</param>
-    static void EvaluatePassingTime(int time)
+    /// <param name="time">The elapsed time in milliseconds to compare with <see cref="MaxAllowableTime"/>.</param>
+    static void EvaluatePassingTime(double time)
     {
         Console.WriteLine("\n");
         Console.Write("Time Check: ");
