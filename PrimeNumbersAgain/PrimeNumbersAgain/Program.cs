@@ -7,6 +7,10 @@ class Program
 {
     private const int MaxAllowableTime = 3;
 
+    /// <summary>
+    /// Prompts for a prime's position, times the search, and displays the result and time check.
+    /// </summary>
+    /// <param name="args">Command-line arguments; these are not used.</param>
     static void Main(string[] args)
     {
         int n, prime;
@@ -25,11 +29,20 @@ class Program
         EvaluatePassingTime(timer.Elapsed.Seconds);
     }
 
+    /// <summary>
+    /// Finds the prime at the specified one-based position. Students must implement this method.
+    /// </summary>
+    /// <param name="n">The requested position, from 1 through 1,999,999, where 1 represents the prime 2.</param>
+    /// <returns>The prime at position <paramref name="n"/> once implemented; currently returns 0 as a placeholder.</returns>
     static int FindNthPrime(int n)
     {
         return 0;
     }
 
+    /// <summary>
+    /// Prompts until the user enters a valid 32-bit integer.
+    /// </summary>
+    /// <returns>The entered integer; its range is not validated against the assignment requirements.</returns>
     static int GetNumber()
     {
         int n = 0;
@@ -47,6 +60,9 @@ class Program
         }
     }
 
+    /// <summary>
+    /// Displays the application banner and configured time limit.
+    /// </summary>
     static void PrintBanner()
     {
         Console.WriteLine(".................................................");
@@ -60,6 +76,10 @@ class Program
         
     }
 
+    /// <summary>
+    /// Displays a colored pass or fail result by comparing the supplied time with the configured limit.
+    /// </summary>
+    /// <param name="time">The elapsed time in seconds to compare with <see cref="MaxAllowableTime"/>.</param>
     static void EvaluatePassingTime(int time)
     {
         Console.WriteLine("\n");
